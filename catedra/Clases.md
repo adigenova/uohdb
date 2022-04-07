@@ -13,6 +13,7 @@ Los primeros Notebooks para ser utilizados en GoogleColab estan disponibles en :
 ## BD-W1-C02
 Diseño de bases de datos
 ### Slides
+Las slides de la clase Diseño de bases de datos I, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W1-C02/BD-W1-C02-Desing.pdf)
 
 ### Material
 
