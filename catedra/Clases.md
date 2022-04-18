@@ -25,19 +25,26 @@ Las slides de la clase Diseño de bases de datos II, están disponibles [aqui](h
 
 ### Modelo E/R Campeonato de Tenis (CT)
 
-El modelo E/R de CT esta en almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C01/model_ER_clase.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
+El modelo E/R de CT esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C01/model_ER_clase.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
 
 ## BD-W2-C02 (14/04/2022)
 
 Lenguajes de modelamiento de bases de datos.
 
+### Slides
+Las slides de la clase Lenguajes de modelamiento de bases de datos, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C01/BD-W2-C02-Desing.pdf)
+
+### Modelo E/R Farmacia
+
+El modelo E/R de Farmacia esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C02/farmacia.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
+
 ## BD-W3-C01
 
-Diagramas Entidad/Relación
+Diagramas Entidad/Relación I
 
 ## BD-W3-C02
 
-Diagramas Entidad/Relación
+Diagramas Entidad/Relación II
 
 ## BD-W4-C01
 
