@@ -32,7 +32,7 @@ El modelo E/R de CT esta almacenado en el siguiente [archivo](https://github.com
 Lenguajes de modelamiento de bases de datos.
 
 ### Slides
-Las slides de la clase Lenguajes de modelamiento de bases de datos, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C01/BD-W2-C02-Desing.pdf)
+Las slides de la clase Lenguajes de modelamiento de bases de datos, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C02/BD-W2-C02-Desing.pdf)
 
 ### Modelo E/R Farmacia
 
