@@ -44,7 +44,7 @@ Diagramas Entidad/Relación I
 
 ### Slides
 
-Las slides de la clase Diagramas Entidad/Relación I, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C01/BD-W3-C01-Desing.pdf)
+Las slides de la clase Diagramas Entidad/Relación I, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C01/BD-W3-C01-ER-I.pdf)
 
 ### Modelo E/R PYME
 
