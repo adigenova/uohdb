@@ -38,9 +38,22 @@ Las slides de la clase Lenguajes de modelamiento de bases de datos, están dispo
 
 El modelo E/R de Farmacia esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C02/farmacia.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
 
-## BD-W3-C01
+## BD-W3-C01 (19/04/2022)
 
 Diagramas Entidad/Relación I
+
+### Slides
+
+Las slides de la clase Diagramas Entidad/Relación I, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C01/BD-W3-C01-Desing.pdf)
+
+### Modelo E/R PYME
+
+El modelo E/R de PYME esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C01/modelo_pyme.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
+
+### Modelo E/R RentaCar
+
+El modelo E/R de RentaCar esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C01/renta_car.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
+
 
 ## BD-W3-C02
 
