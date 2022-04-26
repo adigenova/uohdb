@@ -69,7 +69,11 @@ El modelo E/R de Hostpital esta almacenado en el siguiente [archivo](https://git
 
 ## BD-W4-C01
 
-Diseño relacional a partir de diagramas Entidad/Relación
+Diseño relacional a partir de diagramas Entidad/Relación I
+
+### Slides
+
+Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación I, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W4-C01/BD-W4-C01-ER-R-I.pdf)
 
 ## BD-W4-C02
 
