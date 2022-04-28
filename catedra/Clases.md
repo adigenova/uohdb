@@ -55,7 +55,7 @@ El modelo E/R de PYME esta almacenado en el siguiente [archivo](https://github.c
 El modelo E/R de RentaCar esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C01/renta_car.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
 
 
-## BD-W3-C02
+## BD-W3-C02 (21/04/2022)
 
 Diagramas Entidad/Relación II
 
@@ -67,7 +67,7 @@ Las slides de la clase Diagramas Entidad/Relación II, están disponibles [aqui]
 
 El modelo E/R de Hostpital esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C02/Hospital.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
 
-## BD-W4-C01
+## BD-W4-C01 (26/04/2022)
 
 Diseño relacional a partir de diagramas Entidad/Relación I
 
@@ -75,9 +75,18 @@ Diseño relacional a partir de diagramas Entidad/Relación I
 
 Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación I, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W4-C01/BD-W4-C01-ER-R-I.pdf)
 
-## BD-W4-C02
+## BD-W4-C02 (28/04/2022)
 
-Diseño relacional a partir de diagramas Entidad/Relación
+Diseño relacional a partir de diagramas Entidad/Relación II
+
+### Slides
+
+Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación II, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W4-C02/BD-W4-C02-ER-R-II.pdf)
+
+### Codigo SQL
+
+El codigo SQL de la corespondiente a la clase Diseño relacional a partir de diagramas Entidad/Relación II, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/PYME_database.ipynb) 
+
 
 ## BD-W5-C01
 
