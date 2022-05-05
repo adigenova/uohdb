@@ -103,12 +103,12 @@ Diseño relacional a partir de diagramas Entidad/Relación y SQL II
 
 ### Slides
 
-Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación y SQL II, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W5-C02/BD-W5-C02-ER-R-F2.pdf)
+Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación y SQL II, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W5-C02/BD-W5-C02-ER-RII-SQLII.pdf)
 
 
 ### Codigo SQL
 
-El codigo SQL de la corespondiente a la clase  Diseño relacional a partir de diagramas Entidad/Relación y dependencias funcionales II, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/PYME_database.ipynb) 
+El codigo SQL de la corespondiente a la clase  Diseño relacional a partir de diagramas Entidad/Relación y dependencias funcionales II, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/ONG.ipynb) 
 
 
 ## BD-W6-C01
