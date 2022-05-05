@@ -88,13 +88,28 @@ Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relació
 El codigo SQL de la corespondiente a la clase Diseño relacional a partir de diagramas Entidad/Relación II, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/PYME_database.ipynb) 
 
 
-## BD-W5-C01
+## BD-W5-C01 (03/05/2022)
 
-Diseño relacional a partir de diagramas Entidad/Relación y dependencias funcionales
+Diseño relacional a partir de diagramas Entidad/Relación y dependencias funcionales I
 
-## BD-W5-C02
+### Slides
 
-Diseño relacional a partir de diagramas Entidad/Relación y dependencias funcionales
+Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación y dependencias funcionales I, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W5-C01/BD-W5-C01-ER-R-III.pdf)
+
+
+## BD-W5-C02 (05/05/2022)
+
+Diseño relacional a partir de diagramas Entidad/Relación y SQL II
+
+### Slides
+
+Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación y SQL II, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W5-C02/BD-W5-C02-ER-R-F2.pdf)
+
+
+### Codigo SQL
+
+El codigo SQL de la corespondiente a la clase  Diseño relacional a partir de diagramas Entidad/Relación y dependencias funcionales II, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/PYME_database.ipynb) 
+
 
 ## BD-W6-C01
 
@@ -102,7 +117,7 @@ Diseño relacional, normalización, y cálculo relacional.
 
 ## BD-W6-C02
 
-Tarea 1 y Control
+Control I
 
 ## BD-W7-C01
 
