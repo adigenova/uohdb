@@ -111,9 +111,13 @@ Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relació
 El codigo SQL de la corespondiente a la clase  Diseño relacional a partir de diagramas Entidad/Relación y dependencias funcionales II, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/ONG.ipynb) 
 
 
-## BD-W6-C01
+## BD-W6-C01 (10/05/2022)
 
-Diseño relacional, normalización, y cálculo relacional.
+Diseño relacional y normalización
+
+### Slides
+Las slides de la clase Diseño relacional y normalización, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W6-C01/BD-W6-C01-R-norm.pdf)
+
 
 ## BD-W6-C02
 
@@ -121,7 +125,7 @@ Control I
 
 ## BD-W7-C01
 
-Lenguaje SQL
+Cálculo relacional y lenguaje SQL
 
 ## BD-W7-C02
 
