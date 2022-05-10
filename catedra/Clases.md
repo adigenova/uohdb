@@ -121,7 +121,15 @@ Las slides de la clase Diseño relacional y normalización, están disponibles [
 
 ## BD-W6-C02
 
-Control I
+Control I:
+
+1. Modelo ER
+2. Modelo ER -> Relacional
+3. Modelo relacional -> SQL.
+4. Dependencias funcionales en modelo relacional
+5. Normalización de modelo relacional.
+
+Por lo tanto el contenido a evaluar por el control I corresponde hasta la clase del 10/05/2022 (Normalización).
 
 ## BD-W7-C01
 
