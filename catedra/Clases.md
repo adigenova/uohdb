@@ -133,11 +133,15 @@ Por lo tanto el contenido a evaluar por el control I corresponde hasta la clase 
 
 ## BD-W7-C01
 
-Cálculo relacional y lenguaje SQL
+Lenguaje SQL
+
+### Slides
+
+Las slides de la clase Lenguaje SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W7-C01/BD-W7-C01-CR-SQL.pdf)
 
 ## BD-W7-C02
 
-Lenguaje SQL
+Cálculo relacional  y Lenguaje SQL II
 
 ## BD-W8-C01
 
