@@ -141,7 +141,15 @@ Las slides de la clase Lenguaje SQL, están disponibles [aqui](https://github.co
 
 ## BD-W7-C02
 
-Cálculo relacional  y Lenguaje SQL II
+Algebra relacional  y Lenguaje SQL II
+
+### Slides
+
+Las slides de la clase Lenguaje SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W7-C02/BD-W7-C02-SQLII.pdf)
+
+### Codigo SQL
+
+El codigo SQL de corespondiente a la clase Algebra relacional  y Lenguaje SQL II, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_II_chinook_db.ipynb) 
 
 ## BD-W8-C01
 
