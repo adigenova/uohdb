@@ -119,7 +119,7 @@ Diseño relacional y normalización
 Las slides de la clase Diseño relacional y normalización, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W6-C01/BD-W6-C01-R-norm.pdf)
 
 
-## BD-W6-C02
+## BD-W6-C02 (12/05/2022)
 
 Control I:
 
@@ -131,7 +131,7 @@ Control I:
 
 Por lo tanto el contenido a evaluar por el control I corresponde hasta la clase del 10/05/2022 (Normalización).
 
-## BD-W7-C01
+## BD-W7-C01 (17/05/2022)
 
 Lenguaje SQL
 
@@ -139,7 +139,7 @@ Lenguaje SQL
 
 Las slides de la clase Lenguaje SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W7-C01/BD-W7-C01-CR-SQL.pdf)
 
-## BD-W7-C02
+## BD-W7-C02 (19/05/2022)
 
 Algebra relacional  y Lenguaje SQL II
 
@@ -151,27 +151,29 @@ Las slides de la clase Lenguaje SQL, están disponibles [aqui](https://github.co
 
 El codigo SQL de corespondiente a la clase Algebra relacional  y Lenguaje SQL II, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_II_chinook_db.ipynb) 
 
-## BD-W8-C01
+# Semana receso primer semestre 2022 (23/05- 27/05) 
+
+## BD-W8-C01 (31/05/2022)
 
 Lenguaje SQL
 
-## BD-W8-C02
+## BD-W8-C02 (02/06/2022)
 
 Lenguaje SQL
 
-## BD-W9-C01
+## BD-W9-C01 (07/06/2022)
 
 Consultas y subconsultas en SQL
 
-## BD-W9-C02
+## BD-W9-C02 (09/06/2022)
 
 Consultas y subconsultas en SQL (Tarea 2)
 
-## BD-W10-C01
+## BD-W10-C01 (14/06/2022)
 
 Control 2
 
-## BD-W10-C02
+## BD-W10-C02 (16/06/2022)
 
 Tablas, vistas, indexación y optimización de consultas SQL.
 
