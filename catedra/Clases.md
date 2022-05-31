@@ -156,6 +156,12 @@ El codigo SQL de corespondiente a la clase Algebra relacional  y Lenguaje SQL II
 ## BD-W8-C01 (31/05/2022)
 
 Lenguaje SQL
+### Slides
+Las slides de la clase Lenguaje SQL III, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W8-C01/BD-W8-C01-SQLII.pdf)
+
+### Codigo SQL
+
+El codigo SQL de corespondiente a la clase Lenguaje SQL III, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_III_chinook_db.ipynb) 
 
 ## BD-W8-C02 (02/06/2022)
 
