@@ -165,7 +165,14 @@ El codigo SQL de corespondiente a la clase Lenguaje SQL III, esta disponible [aq
 
 ## BD-W8-C02 (02/06/2022)
 
+
 Lenguaje SQL
+### Slides
+Las slides de la clase Lenguaje SQL IV, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W8-C01/BD-W8-C02-SQLIV.pdf)
+
+### Codigo SQL
+
+El codigo SQL de corespondiente a la clase Lenguaje SQL IV, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_IV_chinook_db.ipynb) 
 
 ## BD-W9-C01 (07/06/2022)
 
