@@ -168,7 +168,7 @@ El codigo SQL de corespondiente a la clase Lenguaje SQL III, esta disponible [aq
 
 Lenguaje SQL
 ### Slides
-Las slides de la clase Lenguaje SQL IV, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W8-C01/BD-W8-C02-SQLIV.pdf)
+Las slides de la clase Lenguaje SQL IV, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W8-C02/BD-W8-C02-SQLIV.pdf)
 
 ### Codigo SQL
 
