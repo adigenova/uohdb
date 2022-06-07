@@ -176,7 +176,13 @@ El codigo SQL de corespondiente a la clase Lenguaje SQL IV, esta disponible [aqu
 
 ## BD-W9-C01 (07/06/2022)
 
-Consultas y subconsultas en SQL
+Lenguaje SQL 
+### Slides
+Las slides de la clase Lenguaje SQL V, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W8-C02/BD-W9-C01-SQLV.pdf)
+
+### Codigo SQL
+
+El codigo SQL de corespondiente a la clase Lenguaje SQL V, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_V_chinook_db.ipynb) 
 
 ## BD-W9-C02 (09/06/2022)
 
