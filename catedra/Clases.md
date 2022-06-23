@@ -199,9 +199,17 @@ El codigo SQL de corespondiente a la clase Lenguaje SQL V, esta disponible [aqui
 
 Control 2
 
-## BD-W10-C02 (16/06/2022)
+## BD-W10-C02 (23/06/2022)
 
-Tablas, vistas, indexación y optimización de consultas SQL.
+Vistas, indexación y optimización de consultas SQL.
+
+### Slides
+Las slides de la clase Vistas, indexación y optimización de consultas SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W10-C02/BD-W10-C02-View_index.pdf)
+
+### Codigo SQL
+
+El codigo SQL de corespondiente a la clase Vistas, indexación y optimización de consultas SQL, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/View_index_chinook_db.ipynb) 
+
 
 ## BD-W11-C01
 
