@@ -211,9 +211,12 @@ Las slides de la clase Vistas, indexación y optimización de consultas SQL, est
 El codigo SQL de corespondiente a la clase Vistas, indexación y optimización de consultas SQL, esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/View_index_chinook_db.ipynb) 
 
 
-## BD-W11-C01
+## BD-W11-C01 (28/06/2022)
 
-Propiedades ACID 
+Transacciones y propiedades ACID
+
+### Slides
+Las slides de la clase Transacciones y propiedades ACID están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W11-C01/BD-W11-C01-transactions.pdf)
 
 ## BD-W11-C02
 
