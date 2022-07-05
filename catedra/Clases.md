@@ -220,7 +220,10 @@ Las slides de la clase Transacciones y propiedades ACID están disponibles [aqui
 
 ## BD-W11-C02
 
-Propiedades ACID
+Optimización II
+
+### Slides
+Las slides de la clase Optimización II están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W11-C02/BD-W11-C02-OptII.pdf)
 
 ## BD-W12-C01
 
