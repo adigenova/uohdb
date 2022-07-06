@@ -223,11 +223,16 @@ Las slides de la clase Transacciones y propiedades ACID están disponibles [aqui
 Optimización II
 
 ### Slides
+
 Las slides de la clase Optimización II están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W11-C02/BD-W11-C02-OptII.pdf)
 
 ## BD-W12-C01
 
 Recuperación y Control de concurrencia
+
+### Slides
+
+Las slides de la clase Recuperación y Control de Concurrencia [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W12-C01/BD-W12-C01-concurrency.pdf)
 
 ## BD-W12-C02
 
