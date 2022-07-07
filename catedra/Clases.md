@@ -218,7 +218,7 @@ Transacciones y propiedades ACID
 ### Slides
 Las slides de la clase Transacciones y propiedades ACID están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W11-C01/BD-W11-C01-transactions.pdf)
 
-## BD-W11-C02
+## BD-W11-C02 (05/07/2022)
 
 Optimización II
 
@@ -226,7 +226,7 @@ Optimización II
 
 Las slides de la clase Optimización II están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W11-C02/BD-W11-C02-OptII.pdf)
 
-## BD-W12-C01
+## BD-W12-C01 (06/07/2022)
 
 Recuperación y Control de concurrencia
 
@@ -234,9 +234,13 @@ Recuperación y Control de concurrencia
 
 Las slides de la clase Recuperación y Control de Concurrencia [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W12-C01/BD-W12-C01-concurrency.pdf)
 
-## BD-W12-C02
+## BD-W12-C02 (07/07/2022)
 
-Recuperación y Control de concurrencia
+No-SQL (Not Only SQL)
+
+### Slides
+
+Las slides de la clase NoSQL [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W12-C02/BD-W12-C02-noSQL.pdf)
 
 ## BD-W13-C01
 
