@@ -242,18 +242,25 @@ No-SQL (Not Only SQL)
 
 Las slides de la clase NoSQL [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W12-C02/BD-W12-C02-noSQL.pdf)
 
-## BD-W13-C01
+## BD-W13-C01 (12/07/2022)
 
-No-SQL (Not Only SQL)
+No-SQL (Not Only SQL) II
 
-## BD-W13-C02
+### Slides
 
-No-SQL (Not Only SQL)
+Las slides de la clase NoSQL II [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W13-C01/BD-W13-C01-noSQL.pdf)
 
-## BD-W14-C01
+### Codigo AQL
 
-No-SQL (Not Only SQL)
+El codigo AQL  corespondiente a la clase No-SQL II esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/NoSQL_ArangoDB_ejemplo.ipynb) 
 
-## BD-W14-C02
+
+## BD-W13-C02 (14/07/2022)
 
 Control 3
+
+## BD-W14-C01 (18/07/2022)
+
+Control Recuperativo
+
+
