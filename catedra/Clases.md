@@ -10,11 +10,23 @@ Las slides de la clase introducción están disponibles [aqui](https://github.co
 ### Material
 Los primeros Notebooks para ser utilizados en GoogleColab estan disponibles en : [SQL basico](https://github.com/adigenova/uohdb/blob/main/code/Basic_SQL.ipynb) y base de datos [Chinook](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
 
-## BD-W1-C02 (16/03/2023)
+# BD-W1-C02 (16/03/2023)
 
 Diseño de baess de datos
 
 ### Slides
 
 Las slides de la clase introducción están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W1-C02).
-#
+
+## BD-W2-C01 (23/03/2023)
+Diseño de bases de datos II
+
+### Slides
+Las slides de la clase Diseño de bases de datos II, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C01/BD-W2-C01-Desing.pdf)
+
+### Modelo E/R Campeonato de Tenis (CT)
+
+El modelo E/R de CT esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C01/model_ER_clase.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
+
+
+
