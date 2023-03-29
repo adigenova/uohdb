@@ -10,9 +10,9 @@ Las slides de la clase introducción están disponibles [aqui](https://github.co
 ### Material
 Los primeros Notebooks para ser utilizados en GoogleColab estan disponibles en : [SQL basico](https://github.com/adigenova/uohdb/blob/main/code/Basic_SQL.ipynb) y base de datos [Chinook](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
 
-# BD-W1-C02 (16/03/2023)
+## BD-W1-C02 (16/03/2023)
 
-Diseño de baess de datos
+Diseño de bases de datos
 
 ### Slides
 
@@ -29,4 +29,13 @@ Las slides de la clase Diseño de bases de datos II, están disponibles [aqui](h
 El modelo E/R de CT esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C01/model_ER_clase.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
 
 
+## BD-W2-C02 (28/03/2022)
 
+Lenguajes de modelamiento de bases de datos.
+
+### Slides
+Las slides de la clase Lenguajes de modelamiento de bases de datos, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C02/BD-W2-C02-Desing.pdf)
+
+### Modelo E/R Farmacia
+
+El modelo E/R de Farmacia esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W2-C02/farmacia.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
