@@ -57,4 +57,18 @@ El modelo E/R de Clinica Odontológica esta almacenado en el siguiente [archivo]
 El modelo E/R de RentaCar esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C01/renta_car.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
 
 
+## BD-W3-C02 (04/04/2023)
+
+Diseño relacional a partir de diagramas Entidad/Relación I
+
+### Slides
+
+Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación I, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C02/BD-W3-C02-ER-II.pdf)
+
+### Modelo E/R Hospital
+
+El modelo E/R de Hostpital esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C02/Hospital.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
+
+
+
 
