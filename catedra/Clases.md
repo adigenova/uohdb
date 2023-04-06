@@ -69,6 +69,20 @@ Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relació
 
 El modelo E/R de Hostpital esta almacenado en el siguiente [archivo](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W3-C02/Hospital.drawio) y puede ser modificado en linea con la aplicacion [diagrams.net](https://app.diagrams.net/)
 
+## BD-W4-C01 (06/04/2023)
+
+Diseño relacional a partir de diagramas Entidad/Relación II
+
+### Slides
+
+Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación II, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W4-C01/BD-W4-C01-ER-R-I.pdf)
+
+### Codigo SQL base de datos PYME
+
+El codigo SQL visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/PYME_database.ipynb)
+
+
+
 
 
 
