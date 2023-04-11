@@ -81,6 +81,15 @@ Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relació
 
 El codigo SQL visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/PYME_database.ipynb)
 
+## BD-W4-C02 (11/04/2023)
+
+Diseño relacional a partir de diagramas Entidad/Relación III y dependencias funcionales
+
+### Slides
+
+Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación III y dependencias funcionales, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W4-C02/BD-W4-C02-ER-R-II.pdf)
+
+
 
 
 
