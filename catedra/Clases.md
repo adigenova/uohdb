@@ -90,6 +90,15 @@ Diseño relacional a partir de diagramas Entidad/Relación III y dependencias fu
 Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación III y dependencias funcionales, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W4-C02/BD-W4-C02-ER-R-II.pdf)
 
 
+## BD-W5-C01 (13/04/2023)
+
+Dependencias funcionales y ER/Relacional/SQL 
+
+### Slides
+
+Las slides de la clase Dependencias funcionales y ER/Relacional/SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W5-C02/BD-W5-C01-ER-R-III.pdf)
+
+
 
 
 
