@@ -96,7 +96,7 @@ Dependencias funcionales y ER/Relacional/SQL
 
 ### Slides
 
-Las slides de la clase Dependencias funcionales y ER/Relacional/SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W5-C02/BD-W5-C01-ER-R-III.pdf)
+Las slides de la clase Dependencias funcionales y ER/Relacional/SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W5-C01/BD-W5-C01-ER-R-III.pdf)
 
 
 
