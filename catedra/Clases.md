@@ -99,6 +99,20 @@ Dependencias funcionales y ER/Relacional/SQL
 Las slides de la clase Dependencias funcionales y ER/Relacional/SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W5-C01/BD-W5-C01-ER-R-III.pdf)
 
 
+## BD-W5-C01 (18/04/2023)
+
+Normalización de Modelos relacionales
+
+### Slides
+
+Las slides de la clase normalización, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W5-C02/BD-W5-C02-R-norm.pdf)
+
+
+## Control I (20/04/2023)
+
+Control I, contenido es hasta la clases del 18/04.
+
+ 
 
 
 
