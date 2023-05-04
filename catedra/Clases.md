@@ -132,7 +132,7 @@ Lenguaje SQL II
 
 ### Slides
 
-Las slides de la clase Lenguaje SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W6-C01/BD-W6-C01-CR-SQL.pdf)
+Las slides de la clase Lenguaje SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W7-C01/BD-W7-C01-SQLII.pdf)
 
 ### Codigo
 
@@ -145,7 +145,7 @@ Lenguaje SQL III
 
 ### Slides
 
-Las slides de la clase Lenguaje SQL III, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W6-C01/BD-W6-C01-CR-SQL.pdf)
+Las slides de la clase Lenguaje SQL III, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W7-C02/BD-W7-C02-SQLIV.pdf)
 
 ### Codigo
 
