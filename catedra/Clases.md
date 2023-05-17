@@ -151,6 +151,32 @@ Las slides de la clase Lenguaje SQL III, están disponibles [aqui](https://githu
 
 El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_III_chinook_db.ipynb)
 
+## BD-W8-C01 (05/05/2023)
+
+Lenguaje SQL IV
+
+### Slides
+
+Las slides de la clase Lenguaje SQL IV, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W8-C01/BD-W8-C01-SQLV.pdf)
+
+
+### Codigo
+
+El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_V_chinook_db.ipynb)
+
+
+## BD-W8-C02 (18/05/2023)
+
+Lenguaje SQL V
+
+### Slides
+
+Las slides de la clase Lenguaje SQL V, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W8-C02/BD-W8-C02-SQLVI.pdf)
+
+
+### Codigo
+
+El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_VI_chinook_db.ipynb)
 
 
 
