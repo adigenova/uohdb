@@ -178,6 +178,21 @@ Las slides de la clase Lenguaje SQL V, están disponibles [aqui](https://github.
 
 El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_VI_chinook_db.ipynb)
 
+## BD-W9-C01 (23/05/2023)
+
+Vistas, indexacion y optimizacion de consultas SQL
+
+### Slides
+
+Las slides de la clase Vistas e indexación, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W9-C01/BD-W9-C01-View_index.pdf)
+
+
+### Codigo
+
+El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/View_index_chinook_db.ipynb)
+
+
+
 
 
 
