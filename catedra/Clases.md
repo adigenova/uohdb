@@ -191,6 +191,19 @@ Las slides de la clase Vistas e indexación, están disponibles [aqui](https://g
 
 El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/View_index_chinook_db.ipynb)
 
+## BD-W9-C02 (25/05/2023)
+
+Optimizacion de consultas SQL II
+
+### Slides
+
+Las slides de la clase Optimización, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W9-C02/BD-W11-C02-OptII.pdf)
+
+
+### Codigo
+
+El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/View_index_chinook_db.ipynb)
+
 
 
 
