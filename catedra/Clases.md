@@ -77,7 +77,7 @@ Diseño relacional a partir de diagramas Entidad/Relación II
 
 Las slides de la clase Diseño relacional a partir de diagramas Entidad/Relación II, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W4-C01/BD-W4-C01-ER-R-I.pdf)
 
-### Codigo SQL base de datos PYME
+### Código SQL base de datos PYME
 
 El codigo SQL visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/PYME_database.ipynb)
 
@@ -121,7 +121,7 @@ Lenguaje SQL
 
 Las slides de la clase Lenguaje SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W6-C01/BD-W6-C01-CR-SQL.pdf)
 
-### Codigo
+### Código
 
 El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
 
@@ -134,7 +134,7 @@ Lenguaje SQL II
 
 Las slides de la clase Lenguaje SQL, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W7-C01/BD-W7-C01-SQLII.pdf)
 
-### Codigo
+### Código
 
 El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
 
@@ -147,7 +147,7 @@ Lenguaje SQL III
 
 Las slides de la clase Lenguaje SQL III, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W7-C02/BD-W7-C02-SQLIV.pdf)
 
-### Codigo
+### Código
 
 El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_III_chinook_db.ipynb)
 
@@ -160,7 +160,7 @@ Lenguaje SQL IV
 Las slides de la clase Lenguaje SQL IV, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W8-C01/BD-W8-C01-SQLV.pdf)
 
 
-### Codigo
+### Código
 
 El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_V_chinook_db.ipynb)
 
@@ -174,7 +174,7 @@ Lenguaje SQL V
 Las slides de la clase Lenguaje SQL V, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W8-C02/BD-W8-C02-SQLVI.pdf)
 
 
-### Codigo
+### Código
 
 El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/SQL_VI_chinook_db.ipynb)
 
@@ -187,7 +187,7 @@ Vistas, indexacion y optimizacion de consultas SQL
 Las slides de la clase Vistas e indexación, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W9-C01/BD-W9-C01-View_index.pdf)
 
 
-### Codigo
+### Código
 
 El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/View_index_chinook_db.ipynb)
 
@@ -197,14 +197,20 @@ Optimizacion de consultas SQL II
 
 ### Slides
 
-Las slides de la clase Optimización, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W9-C02/BD-W11-C02-OptII.pdf)
+Las slides de la clase Optimización, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W9-C02/BD-W09-C02-OptII.pdf)
 
 
-### Codigo
+### Código
 
 El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/View_index_chinook_db.ipynb)
 
+## BD-W10-C01 (13/06/2023)
 
+Transaccciones y recuperación
+
+### Slides
+
+Las slides de la clase transacciones, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W10-C01/BD-W10-C01-transactions.pdf)
 
 
 
