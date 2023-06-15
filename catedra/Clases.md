@@ -212,6 +212,19 @@ Transaccciones y recuperación
 
 Las slides de la clase transacciones, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W10-C01/BD-W10-C01-transactions.pdf)
 
+## BD-W10-C02 (15/06/2023)
+
+NoSQL I
+
+### Slides
+
+Las slides de la clase NoSQL I, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/DB-W10-C02/DB-W10-C02-noSQL.pdf)
+
+### Código
+
+El codigo visto correspondiente esta disponible aqui [aqui](https://github.com/adigenova/uohdb/blob/main/code/NoSQL_ArangoDB_ejemplo.ipynb)
+
+
 
 
 
