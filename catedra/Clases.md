@@ -230,7 +230,7 @@ NoSQL II
 
 ### Slides
 
-Las slides de la clase NoSQL II, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/DB-W11-C01/PMD-W11-C01-noSQL.pdf)
+Las slides de la clase NoSQL II, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/BD-W11-C01/PMD-W11-C01-noSQL.pdf)
 
 ### Código
 
