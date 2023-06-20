@@ -224,7 +224,17 @@ Las slides de la clase NoSQL I, están disponibles [aqui](https://github.com/adi
 
 El codigo visto correspondiente esta disponible aqui [aqui](https://github.com/adigenova/uohdb/blob/main/code/NoSQL_ArangoDB_ejemplo.ipynb)
 
+## BD-W11-C01 (20/06/2023)
 
+NoSQL II
+
+### Slides
+
+Las slides de la clase NoSQL II, están disponibles [aqui](https://github.com/adigenova/uohdb/blob/main/catedra/DB-W11-C01/PMD-W11-C01-noSQL.pdf)
+
+### Código
+
+El codigo visto correspondiente esta disponible aqui [aqui](https://github.com/adigenova/uohdb/blob/main/code/Arango_GraphDB.ipynb)
 
 
 
