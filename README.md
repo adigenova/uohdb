@@ -5,3 +5,7 @@ Repositorio con clases y material del curso de base de datos primer semestre 202
 
 Archivo que describe el material presentado clase a clase.
 
+## Repositorio Ayudantias
+
+El repositorio con las ayudantias 2026, está disponible [aquí](https://github.com/humitas-compiled/Ayudantias-COM3101):
+
