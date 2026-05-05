@@ -23,7 +23,7 @@ Diseño de DB I
 Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/BD-W1-C02/BD-W1-C02-Desing.pdf).
 
 
-## BD-W2-C01 (09/04/2026)
+## BD-W2-C02 (09/04/2026)
 
 Diseño de DB II
 
@@ -32,7 +32,7 @@ Diseño de DB II
 Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W2-C01/BD-W2-C01-Desing.pdf).
 
 
-## BD-W2-C02 (14/04/2026)
+## BD-W3-C01 (14/04/2026)
 
 Lenguajes de modelamiento de BD
 
@@ -40,5 +40,73 @@ Lenguajes de modelamiento de BD
 
 Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W2-C02/BD-W2-C02-Desing.pdf).
 
+
+## BD-W3-C02 (16/04/2026)
+
+Modelo ER, UML y Relacional I
+
+### Slides
+
+Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W2-C02/BD-W2-C02-Desing.pdf).
+
+## BD-W4-C01 (21/04/2026)
+
+Modelos Entidad Relación II
+
+### Slides
+
+Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W3-C01/BD-W3-C01-ER-I.pdf).
+
+## BD-W4-C02 (23/04/2026)
+
+Modelo Relacional a partir de ER I
+
+
+### Slides
+
+Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W3-C02/BD-W3-C02-ER-II.pdf).
+
+## BD-W5-C01 (28/04/2026)
+
+Modelo Relacional a partir de ER II
+
+### Slides
+
+Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W4-C01/BD-W4-C01-ER-R-I.pdf).
+
+
+### Codigo
+
+El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/PYME_database.ipynb)
+
+## BD-W5-C02 (30/04/2026)
+
+Modelo Relacional a partir de ER III y dependencias funcionales
+
+### Slides
+
+Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W4-C02/BD-W4-C02-ER-R-II.pdf).
+
+### Codigo
+
+El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/PYME_database.ipynb)
+
+## BD-W6-C01 (05/05/2026)
+
+Dependencias Funcionales y ER/Relacional/SQL
+
+### Slides
+
+Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W5-C01/BD-W5-C01-ER-R-III.pdf).
+
+
+### Codigo
+
+El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/ONG.ipynb)
+
+
+## BD-W6-C02 (07/05/2026)
+
+Control  I
 
 
