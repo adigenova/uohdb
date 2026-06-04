@@ -110,3 +110,68 @@ El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uo
 Control  I
 
 
+## DB-W7-C01 (12/05/2026)
+
+Normalizacion y SQL I
+
+### Slides
+
+Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W5-C02/BD-W5-C02-R-norm.pdf).
+
+### Codigo
+
+El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
+
+## DB-W7-C02 (14/05/2026)
+
+SQL2
+
+### Slides
+
+Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W7-C01/BD-W7-C01-SQLII.pdf).
+
+### Codigo
+
+El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
+
+## Semana receso (18/05/2026)
+
+## DB-W8-C01 (26/05/2026)
+SQL2
+
+### Slides
+
+Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W7-C01/BD-W7-C01-SQLII.pdf).
+
+### Codigo
+
+El codigo visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
+
+
+## DB-W8-C02 (28/05/2026)
+SQL 3
+
+### Slides
+
+Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W7-C01/BD-W7-C02-SQLIV.pdf).
+
+### Codigo
+
+El código visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
+
+
+## DB-W9-C01 (02/06/2026)
+
+SQL practico I
+
+### Codigo
+
+El codigo visto en clases está disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
+
+
+## DB-W9-C02 (04/06/2026)
+SQL practico II
+
+### Codigo
+
+El código visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
