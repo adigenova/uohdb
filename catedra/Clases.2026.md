@@ -155,7 +155,7 @@ SQL 3
 
 Las slides de la clase están disponibles [aqui](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W7-C01/BD-W7-C02-SQLIV.pdf).
 
-### Codigo
+### Código
 
 El código visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
 
@@ -164,14 +164,28 @@ El código visto en clases esta disponible [aqui](https://github.com/adigenova/u
 
 SQL practico I
 
-### Codigo
+### Código
 
-El codigo visto en clases está disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
+El codigo visto en clases está disponible [aquí](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
 
 
 ## DB-W9-C02 (04/06/2026)
 SQL practico II
 
-### Codigo
+### Código
 
-El código visto en clases esta disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
+El código visto en clases está disponible [aquí](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb)
+
+## DB-10-C01 (09/06/2026)
+SQL IV, vistas e indices
+
+
+
+### Slides
+
+Las slides de la clase están disponibles [aquí](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W8-C02/BD-W8-C02-SQLIV.pdf).
+
+
+### Código
+
+El código visto en clases está disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb), [avanzadas](https://github.com/adigenova/uohdb/blob/main/code/SQL_VI_chinook_db.ipynb), [vistas](https://github.com/adigenova/uohdb/blob/main/code/View_index_chinook_db.ipynb)
