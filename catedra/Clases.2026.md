@@ -189,3 +189,13 @@ Las slides de la clase están disponibles [aquí](https://github.com/adigenova/u
 ### Código
 
 El código visto en clases está disponible [aqui](https://github.com/adigenova/uohdb/blob/main/code/Chinook_db.ipynb), [avanzadas](https://github.com/adigenova/uohdb/blob/main/code/SQL_VI_chinook_db.ipynb), [vistas](https://github.com/adigenova/uohdb/blob/main/code/View_index_chinook_db.ipynb)
+
+
+## DB-10-C02 (11/06/2026)
+
+Indices II
+
+### Slides
+
+Las slides de la clase están disponibles [aquí](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W9-C02/BD-W09-C02-OptII.pdf).
+
