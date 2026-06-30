@@ -199,3 +199,39 @@ Indices II
 
 Las slides de la clase están disponibles [aquí](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W9-C02/BD-W09-C02-OptII.pdf).
 
+
+
+## DB-11-C02 (16/06/2026)
+
+Repaso Control2 
+
+## Control 2 (18/06/2026)
+
+
+
+## DB-12-C01 (23/06/2026)
+
+Transacciones, propiedades ACID y recuperación
+
+
+### Slides
+
+Las slides de la clase están disponibles [aquí](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W10-C01/BD-W10-C01-transactions.pdf)
+
+
+## DB-13-C01 (30/06/2026)
+
+NOSQL I
+
+### Slides
+
+Las slides de la clase están disponibles [aquí](https://github.com/adigenova/uohdb/tree/main/catedra/DB-W10-C02/DB-W10-C02-noSQL.pdf)
+
+### Codigo
+
+El codigo introductorio a AQL esta [aqui](https://github.com/adigenova/uohdb/blob/main/code/Arango_GraphDB.ipynb)
+
+
+
+
+
