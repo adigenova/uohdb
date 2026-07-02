@@ -1,0 +1,1098 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+
+\definecolor{aqlblue}{RGB}{24,90,160}
+\definecolor{aqlgreen}{RGB}{0,120,90}
+\definecolor{aqlgray}{RGB}{245,245,245}
+\definecolor{aqlorange}{RGB}{190,90,20}
+
+\lstdefinelanguage{AQL}{
+  morekeywords={FOR,IN,FILTER,RETURN,SORT,LIMIT,LET,COLLECT,WITH,COUNT,INTO,AGGREGATE,INSERT,UPDATE,REPLACE,REMOVE,UPSERT,OPTIONS,OLD,NEW,OUTBOUND,INBOUND,ANY,GRAPH,PRUNE,SHORTEST_PATH,TO,SEARCH,BOOST,ANALYZER,VIEW,DISTINCT,KEEP,AND,OR,NOT,NULL,true,false,ASC,DESC},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]'
+}
+
+\lstset{
+  language=AQL,
+  basicstyle=\ttfamily\scriptsize,
+  keywordstyle=\bfseries\color{aqlblue},
+  commentstyle=\itshape\color{gray},
+  stringstyle=\color{aqlgreen},
+  backgroundcolor=\color{aqlgray},
+  showstringspaces=false,
+  columns=fullflexible,
+  keepspaces=true,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{gray!35},
+  tabsize=2
+}
+
+\title[Clase AQL]{AQL en ArangoDB: consultas simples, intermedias y avanzadas}
+\subtitle{Documentos, agregaciones, subconsultas, grafos y rendimiento}
+\author{Alex Di Genova}
+\institute{Curso de Bases de Datos / Minería de Datos}
+\date{\today}
+
+\begin{document}
+
+%------------------------------------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Objetivos de aprendizaje}
+\begin{itemize}
+  \item Comprender el rol de AQL como lenguaje declarativo de consulta y manipulación de datos en ArangoDB.
+  \item Escribir consultas básicas con \texttt{FOR}, \texttt{FILTER}, \texttt{SORT}, \texttt{LIMIT}, \texttt{LET} y \texttt{RETURN}.
+  \item Manipular documentos con \texttt{INSERT}, \texttt{UPDATE}, \texttt{REPLACE}, \texttt{REMOVE} y \texttt{UPSERT}.
+  \item Construir consultas intermedias con \texttt{COLLECT}, subconsultas, proyecciones y parámetros.
+  \item Aplicar consultas avanzadas sobre grafos, rutas, optimización y buenas prácticas.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{¿Qué es AQL?}
+\justifying
+AQL significa \textbf{ArangoDB Query Language}. Es el lenguaje usado por ArangoDB para consultar y modificar datos almacenados como documentos JSON, colecciones y grafos.
+
+\vspace{0.4cm}
+\begin{block}{Idea central}
+AQL describe \textbf{qué resultado se quiere obtener}, no necesariamente \textbf{cómo} obtenerlo. Por eso se considera un lenguaje declarativo.
+\end{block}
+
+\vspace{0.2cm}
+\begin{itemize}
+  \item Similar en propósito a SQL, pero con sintaxis adaptada a documentos y grafos.
+  \item Es un lenguaje de manipulación de datos: permite leer, insertar, actualizar y eliminar documentos.
+  \item No se usa para crear bases, colecciones o índices; esas tareas son administrativas.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Modelo mental: de SQL a AQL}
+\begin{table}
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Concepto & SQL & AQL \\
+\midrule
+Tabla & \texttt{estudiantes} & Colección \texttt{estudiantes} \\
+Fila & Registro & Documento JSON \\
+Columna & Atributo fijo & Atributo flexible \\
+WHERE & \texttt{WHERE} & \texttt{FILTER} \\
+SELECT & \texttt{SELECT} & \texttt{RETURN} \\
+GROUP BY & \texttt{GROUP BY} & \texttt{COLLECT} \\
+JOIN & \texttt{JOIN} & bucles, \texttt{DOCUMENT()}, grafos \\
+Relación & FK & documento, edge o referencia \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+\begin{alertblock}{Diferencia clave}
+En AQL se trabaja naturalmente con objetos, arreglos y grafos, no solo con tablas planas.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Caso de estudio}
+Usaremos una base de datos pequeña de cursos universitarios:
+
+\vspace{0.2cm}
+\begin{itemize}
+  \item \texttt{estudiantes}: documentos con nombre, carrera, edad, promedio e intereses.
+  \item \texttt{cursos}: documentos con nombre, área y créditos.
+  \item \texttt{inscripciones}: edge collection desde estudiante hacia curso, con nota y semestre.
+  \item \texttt{sigue}: edge collection estudiante-estudiante, para consultas de red social.
+  \item \texttt{requiere}: edge collection curso-curso, para prerrequisitos.
+\end{itemize}
+
+\vspace{0.2cm}
+\begin{block}{Idea}
+El mismo conjunto de datos permite practicar consultas de documentos, agregaciones y grafos.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{Preparación: colecciones fuera de AQL}
+AQL no crea colecciones. Primero se preparan desde la interfaz web, arangosh o un driver.
+
+\begin{lstlisting}[language=AQL]
+// En arangosh, no en AQL puro:
+db._create("estudiantes")
+db._create("cursos")
+db._createEdgeCollection("inscripciones")
+db._createEdgeCollection("sigue")
+db._createEdgeCollection("requiere")
+\end{lstlisting}
+
+\begin{alertblock}{Importante}
+Las consultas AQL asumen que las colecciones ya existen.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{Datos de ejemplo: estudiantes}
+\begin{lstlisting}
+FOR doc IN [
+  { _key:"e1", nombre:"Ana", edad:21,
+    carrera:"Bioinformatica", promedio:6.1,
+    activo:true, intereses:["genomica", "R", "grafos"] },
+  { _key:"e2", nombre:"Bruno", edad:23,
+    carrera:"Ingenieria", promedio:5.4,
+    activo:true, intereses:["bases de datos", "Python"] },
+  { _key:"e3", nombre:"Carla", edad:20,
+    carrera:"Bioinformatica", promedio:6.5,
+    activo:true, intereses:["IA", "histologia"] },
+  { _key:"e4", nombre:"Diego", edad:24,
+    carrera:"Medicina", promedio:4.9,
+    activo:false, intereses:["salud", "estadistica"] }
+]
+INSERT doc INTO estudiantes
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{Datos de ejemplo: cursos}
+\begin{lstlisting}
+FOR doc IN [
+  { _key:"bd", nombre:"Bases de Datos", area:"datos", creditos:5 },
+  { _key:"prog", nombre:"Programacion", area:"programacion", creditos:6 },
+  { _key:"mineria", nombre:"Mineria de Datos", area:"datos", creditos:5 },
+  { _key:"bioinfo", nombre:"Bioinformatica", area:"biologia", creditos:4 }
+]
+INSERT doc INTO cursos
+\end{lstlisting}
+
+\vspace{0.2cm}
+\begin{block}{Observación}
+Cada documento tiene una llave \texttt{\_key}; ArangoDB también genera \texttt{\_id} y \texttt{\_rev}.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{Datos de ejemplo: relaciones}
+\begin{lstlisting}
+FOR doc IN [
+  { _from:"estudiantes/e1", _to:"cursos/bd", nota:6.4, semestre:"2026-1" },
+  { _from:"estudiantes/e1", _to:"cursos/mineria", nota:6.0, semestre:"2026-1" },
+  { _from:"estudiantes/e2", _to:"cursos/bd", nota:5.3, semestre:"2026-1" },
+  { _from:"estudiantes/e3", _to:"cursos/mineria", nota:6.7, semestre:"2026-1" },
+  { _from:"estudiantes/e4", _to:"cursos/prog", nota:4.5, semestre:"2026-1" }
+]
+INSERT doc INTO inscripciones
+
+FOR doc IN [
+  { _from:"estudiantes/e1", _to:"estudiantes/e2" },
+  { _from:"estudiantes/e2", _to:"estudiantes/e3" },
+  { _from:"estudiantes/e3", _to:"estudiantes/e4" }
+]
+INSERT doc INTO sigue
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{Datos de ejemplo: prerrequisitos}
+\begin{lstlisting}
+FOR doc IN [
+  { _from:"cursos/mineria", _to:"cursos/bd" },
+  { _from:"cursos/mineria", _to:"cursos/prog" },
+  { _from:"cursos/bioinfo", _to:"cursos/prog" }
+]
+INSERT doc INTO requiere
+\end{lstlisting}
+
+\vspace{0.25cm}
+\begin{block}{Interpretación}
+Si existe una arista \texttt{cursos/mineria -> cursos/bd}, entonces Minería de Datos requiere Bases de Datos.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\section{Consultas simples}
+
+\begin{frame}[fragile]{1. Primer resultado con RETURN}
+Toda consulta de lectura debe producir un resultado con \texttt{RETURN}.
+
+\begin{lstlisting}
+RETURN "Hola AQL"
+\end{lstlisting}
+
+Resultado esperado:
+\begin{lstlisting}
+[ "Hola AQL" ]
+\end{lstlisting}
+
+\begin{block}{Clave}
+El resultado de una consulta AQL siempre es un arreglo, incluso si se devuelve un solo valor.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{2. Recorrer una colección con FOR}
+\begin{lstlisting}
+FOR e IN estudiantes
+  RETURN e
+\end{lstlisting}
+
+\vspace{0.2cm}
+\begin{itemize}
+  \item \texttt{FOR e IN estudiantes}: itera por cada documento de la colección.
+  \item \texttt{RETURN e}: devuelve el documento completo.
+\end{itemize}
+
+\begin{alertblock}{Cuidado}
+En colecciones grandes, devolver documentos completos puede ser costoso. Conviene proyectar solo los atributos necesarios.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{3. Proyecciones: devolver solo lo necesario}
+\begin{lstlisting}
+FOR e IN estudiantes
+  RETURN {
+    nombre: e.nombre,
+    carrera: e.carrera,
+    promedio: e.promedio
+  }
+\end{lstlisting}
+
+\vspace{0.2cm}
+\begin{block}{Resultado conceptual}
+Una lista de objetos más pequeños, no el documento completo.
+\end{block}
+
+\begin{lstlisting}
+[
+  { "nombre":"Ana", "carrera":"Bioinformatica", "promedio":6.1 },
+  { "nombre":"Bruno", "carrera":"Ingenieria", "promedio":5.4 }
+]
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{4. Filtros básicos}
+\begin{lstlisting}
+FOR e IN estudiantes
+  FILTER e.carrera == "Bioinformatica"
+  RETURN e.nombre
+\end{lstlisting}
+
+\vspace{0.2cm}
+Operadores comunes:
+\begin{itemize}
+  \item Comparación: \texttt{==}, \texttt{!=}, \texttt{<}, \texttt{<=}, \texttt{>}, \texttt{>=}
+  \item Pertenencia: \texttt{IN}, \texttt{NOT IN}
+  \item Texto: \texttt{LIKE}, \texttt{=\textasciitilde} para expresiones regulares
+  \item Lógicos: \texttt{AND}, \texttt{OR}, \texttt{NOT}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{5. Filtros compuestos}
+\begin{lstlisting}
+FOR e IN estudiantes
+  FILTER e.activo == true
+  FILTER e.promedio >= 6.0
+  RETURN { nombre: e.nombre, promedio: e.promedio }
+\end{lstlisting}
+
+Equivalente:
+\begin{lstlisting}
+FOR e IN estudiantes
+  FILTER e.activo == true AND e.promedio >= 6.0
+  RETURN { nombre: e.nombre, promedio: e.promedio }
+\end{lstlisting}
+
+\begin{block}{Buena práctica}
+Usar varios \texttt{FILTER} puede mejorar la legibilidad. El optimizador decide cómo ejecutar la consulta.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{6. Ordenar y limitar}
+\begin{lstlisting}
+FOR e IN estudiantes
+  FILTER e.activo == true
+  SORT e.promedio DESC, e.nombre ASC
+  LIMIT 3
+  RETURN { nombre: e.nombre, promedio: e.promedio }
+\end{lstlisting}
+
+\vspace{0.25cm}
+\begin{alertblock}{Orden importa}
+Usualmente se filtra, luego se ordena y al final se limita. Un \texttt{LIMIT} antes de \texttt{FILTER} puede descartar documentos relevantes.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{7. Paginación}
+\begin{lstlisting}
+FOR e IN estudiantes
+  SORT e.nombre ASC
+  LIMIT 0, 10
+  RETURN e.nombre
+\end{lstlisting}
+
+\begin{lstlisting}
+FOR e IN estudiantes
+  SORT e.nombre ASC
+  LIMIT 10, 10
+  RETURN e.nombre
+\end{lstlisting}
+
+\vspace{0.2cm}
+\begin{itemize}
+  \item \texttt{LIMIT 0, 10}: primera página.
+  \item \texttt{LIMIT 10, 10}: segunda página.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{8. Variables temporales con LET}
+\begin{lstlisting}
+FOR e IN estudiantes
+  LET estado = e.promedio >= 5.5 ? "aprobado" : "riesgo"
+  RETURN {
+    nombre: e.nombre,
+    promedio: e.promedio,
+    estado: estado
+  }
+\end{lstlisting}
+
+\vspace{0.2cm}
+\begin{block}{Uso de LET}
+Permite guardar cálculos intermedios, mejorar legibilidad y reutilizar expresiones.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{9. Parámetros enlazados}
+Los parámetros evitan concatenar texto en las consultas y ayudan a escribir código más seguro.
+
+\begin{lstlisting}
+FOR e IN estudiantes
+  FILTER e.carrera == @carrera
+  FILTER e.promedio >= @min_promedio
+  RETURN e
+\end{lstlisting}
+
+Parámetros:
+\begin{lstlisting}
+{
+  "carrera": "Bioinformatica",
+  "min_promedio": 6.0
+}
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{10. Parámetro para nombre de colección}
+\begin{lstlisting}
+FOR doc IN @@coleccion
+  LIMIT 5
+  RETURN doc
+\end{lstlisting}
+
+Parámetros:
+\begin{lstlisting}
+{
+  "@coleccion": "estudiantes"
+}
+\end{lstlisting}
+
+\begin{alertblock}{Nota}
+Para valores se usa \texttt{@param}; para colecciones se usa \texttt{@@param} en la consulta y \texttt{"@param"} en el JSON de parámetros.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\section{Consultas intermedias}
+
+\begin{frame}[fragile]{11. Arreglos: expansión}
+\begin{lstlisting}
+FOR e IN estudiantes
+  RETURN {
+    nombre: e.nombre,
+    intereses: e.intereses,
+    primer_interes: e.intereses[0]
+  }
+\end{lstlisting}
+
+Extraer todos los intereses en una lista plana:
+\begin{lstlisting}
+RETURN (
+  FOR e IN estudiantes
+    RETURN e.intereses
+)[**]
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{12. Filtrar dentro de arreglos}
+\begin{lstlisting}
+FOR e IN estudiantes
+  RETURN {
+    nombre: e.nombre,
+    intereses_datos: e.intereses[* FILTER
+      CONTAINS(LOWER(CURRENT), "datos") OR
+      CONTAINS(LOWER(CURRENT), "grafos")
+    ]
+  }
+\end{lstlisting}
+
+\begin{block}{CURRENT}
+Dentro de una expresión inline sobre arreglos, \texttt{CURRENT} representa el elemento actual.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{13. DOCUMENT(): recuperar por identificador}
+\begin{lstlisting}
+RETURN DOCUMENT("estudiantes/e1")
+\end{lstlisting}
+
+\vspace{0.2cm}
+Usando una arista de inscripción:
+\begin{lstlisting}
+FOR i IN inscripciones
+  LET estudiante = DOCUMENT(i._from)
+  LET curso = DOCUMENT(i._to)
+  RETURN {
+    estudiante: estudiante.nombre,
+    curso: curso.nombre,
+    nota: i.nota
+  }
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{14. Patrón de join con DOCUMENT()}
+Consulta: estudiantes inscritos en Bases de Datos.
+
+\begin{lstlisting}
+FOR i IN inscripciones
+  FILTER i._to == "cursos/bd"
+  LET e = DOCUMENT(i._from)
+  RETURN {
+    estudiante: e.nombre,
+    carrera: e.carrera,
+    nota: i.nota
+  }
+\end{lstlisting}
+
+\begin{block}{Lectura}
+La arista tiene \texttt{\_from} y \texttt{\_to}; \texttt{DOCUMENT()} recupera los documentos conectados.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{15. Patrón de join con bucles}
+\begin{lstlisting}
+FOR e IN estudiantes
+  FOR i IN inscripciones
+    FILTER i._from == e._id
+    LET c = DOCUMENT(i._to)
+    RETURN {
+      estudiante: e.nombre,
+      curso: c.nombre,
+      nota: i.nota
+    }
+\end{lstlisting}
+
+\begin{alertblock}{Rendimiento}
+Este patrón puede ser costoso si no hay índices adecuados. Para relaciones naturales, una edge collection y traversal pueden ser mejores.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{16. Agrupar con COLLECT}
+Contar estudiantes por carrera:
+
+\begin{lstlisting}
+FOR e IN estudiantes
+  COLLECT carrera = e.carrera WITH COUNT INTO n
+  SORT n DESC
+  RETURN { carrera: carrera, estudiantes: n }
+\end{lstlisting}
+
+\vspace{0.25cm}
+\begin{block}{Equivalente conceptual}
+\texttt{COLLECT} cumple el rol de \texttt{GROUP BY}, pero puede agrupar documentos, calcular agregados y construir arreglos.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{17. Agregaciones por grupo}
+Promedio de notas por curso:
+
+\begin{lstlisting}
+FOR i IN inscripciones
+  LET c = DOCUMENT(i._to)
+  COLLECT curso = c.nombre
+  AGGREGATE
+    n = COUNT(),
+    promedio = AVERAGE(i.nota),
+    maxima = MAX(i.nota)
+  SORT promedio DESC
+  RETURN {
+    curso: curso,
+    n: n,
+    promedio: ROUND(promedio * 100) / 100,
+    maxima: maxima
+  }
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{18. COLLECT INTO: conservar miembros del grupo}
+\begin{lstlisting}
+FOR i IN inscripciones
+  LET e = DOCUMENT(i._from)
+  LET c = DOCUMENT(i._to)
+  COLLECT curso = c.nombre INTO grupo = {
+    estudiante: e.nombre,
+    nota: i.nota
+  }
+  RETURN {
+    curso: curso,
+    inscritos: grupo[*].estudiante,
+    notas: grupo[*].nota
+  }
+\end{lstlisting}
+
+\begin{block}{Cuándo usarlo}
+Cuando no solo necesitamos estadísticas, sino también los elementos que pertenecen a cada grupo.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{19. RETURN DISTINCT vs COLLECT}
+\begin{columns}
+\column{0.48\textwidth}
+Valores únicos simples:
+\begin{lstlisting}
+FOR e IN estudiantes
+  RETURN DISTINCT e.carrera
+\end{lstlisting}
+
+\column{0.48\textwidth}
+Agrupación flexible:
+\begin{lstlisting}
+FOR e IN estudiantes
+  COLLECT carrera = e.carrera
+  RETURN carrera
+\end{lstlisting}
+\end{columns}
+
+\vspace{0.3cm}
+\begin{itemize}
+  \item \texttt{RETURN DISTINCT}: simple, para un solo valor.
+  \item \texttt{COLLECT}: más flexible; permite contar, agregar y agrupar por varias variables.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{20. Subconsultas con LET}
+Para cada estudiante, listar sus cursos:
+
+\begin{lstlisting}
+FOR e IN estudiantes
+  LET cursos_tomados = (
+    FOR i IN inscripciones
+      FILTER i._from == e._id
+      LET c = DOCUMENT(i._to)
+      SORT c.nombre
+      RETURN { curso: c.nombre, nota: i.nota }
+  )
+  RETURN {
+    estudiante: e.nombre,
+    n_cursos: LENGTH(cursos_tomados),
+    cursos: cursos_tomados
+  }
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{21. Subconsultas: top-k por estudiante}
+Mejores notas de cada estudiante:
+
+\begin{lstlisting}
+FOR e IN estudiantes
+  LET mejores = (
+    FOR i IN inscripciones
+      FILTER i._from == e._id
+      LET c = DOCUMENT(i._to)
+      SORT i.nota DESC
+      LIMIT 2
+      RETURN { curso: c.nombre, nota: i.nota }
+  )
+  RETURN { estudiante: e.nombre, mejores: mejores }
+\end{lstlisting}
+
+\begin{block}{Idea}
+Las subconsultas permiten resolver problemas jerárquicos: un documento principal con resultados anidados.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\section{Modificación de datos}
+
+\begin{frame}[fragile]{22. INSERT y RETURN NEW}
+\begin{lstlisting}
+INSERT {
+  _key: "e5",
+  nombre: "Elena",
+  edad: 22,
+  carrera: "Ingenieria",
+  promedio: 5.8,
+  activo: true
+} INTO estudiantes
+RETURN NEW
+\end{lstlisting}
+
+\begin{block}{NEW}
+En consultas de modificación, \texttt{NEW} representa el documento insertado o modificado.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{23. UPDATE, REPLACE y REMOVE}
+Actualización parcial:
+\begin{lstlisting}
+UPDATE "e5" WITH { promedio: 6.0 } IN estudiantes
+RETURN NEW
+\end{lstlisting}
+
+Reemplazo completo:
+\begin{lstlisting}
+REPLACE "e5" WITH {
+  nombre:"Elena", edad:22, carrera:"Ingenieria", activo:true
+} IN estudiantes
+RETURN NEW
+\end{lstlisting}
+
+Eliminar:
+\begin{lstlisting}
+REMOVE "e5" IN estudiantes
+RETURN OLD
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{24. UPDATE masivo}
+Marcar estudiantes inactivos con bajo promedio:
+
+\begin{lstlisting}
+FOR e IN estudiantes
+  FILTER e.promedio < 5.0
+  UPDATE e WITH { activo: false } IN estudiantes
+  RETURN {
+    antes: OLD.activo,
+    despues: NEW.activo,
+    estudiante: NEW.nombre
+  }
+\end{lstlisting}
+
+\begin{alertblock}{Precaución}
+Siempre pruebe primero la parte \texttt{FOR + FILTER + RETURN} antes de ejecutar un \texttt{UPDATE} o \texttt{REMOVE} masivo.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{25. UPSERT}
+Insertar si no existe; actualizar si ya existe:
+
+\begin{lstlisting}
+UPSERT { _key: "e1" }
+  INSERT {
+    _key: "e1", nombre:"Ana", visitas:1
+  }
+  UPDATE {
+    visitas: OLD.visitas ? OLD.visitas + 1 : 1
+  }
+IN estudiantes
+LET tipo = IS_NULL(OLD) ? "insert" : "update"
+RETURN { operacion: tipo, estudiante: NEW.nombre, visitas: NEW.visitas }
+\end{lstlisting}
+
+\begin{block}{Uso típico}
+Contadores, estados acumulados, sincronización incremental de datos.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\section{Consultas avanzadas}
+
+\begin{frame}{Grafos en AQL}
+\begin{itemize}
+  \item Un grafo tiene \textbf{vértices}: documentos normales.
+  \item Y \textbf{aristas}: documentos especiales con \texttt{\_from} y \texttt{\_to}.
+  \item AQL permite recorrer grafos con \texttt{OUTBOUND}, \texttt{INBOUND} o \texttt{ANY}.
+\end{itemize}
+
+\vspace{0.3cm}
+\begin{block}{Sintaxis general}
+\texttt{FOR vertice, arista, camino IN min..max DIRECCION inicio edgeCollection RETURN ...}
+\end{block}
+
+\vspace{0.2cm}
+\begin{itemize}
+  \item \texttt{vertice}: nodo visitado.
+  \item \texttt{arista}: arista usada para llegar al nodo.
+  \item \texttt{camino}: ruta completa con \texttt{vertices} y \texttt{edges}.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{26. Traversal simple: red social}
+Contactos hasta distancia 2 desde Ana:
+
+\begin{lstlisting}
+FOR v, e, p IN 1..2 OUTBOUND "estudiantes/e1" sigue
+  RETURN {
+    contacto: v.nombre,
+    profundidad: LENGTH(p.edges),
+    camino: p.vertices[*].nombre
+  }
+\end{lstlisting}
+
+\vspace{0.2cm}
+\begin{block}{Interpretación}
+\texttt{1..2} significa seguir caminos de mínimo 1 y máximo 2 aristas.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{27. Traversal con filtros}
+Contactos activos de Ana hasta distancia 2:
+
+\begin{lstlisting}
+FOR v, e, p IN 1..2 OUTBOUND "estudiantes/e1" sigue
+  FILTER v.activo == true
+  SORT LENGTH(p.edges), v.nombre
+  RETURN {
+    contacto: v.nombre,
+    carrera: v.carrera,
+    distancia: LENGTH(p.edges)
+  }
+\end{lstlisting}
+
+\begin{alertblock}{Cuidado}
+El filtro se aplica a los vértices emitidos. Si se desea cortar ramas de búsqueda, se usa \texttt{PRUNE}.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{28. PRUNE: cortar exploración}
+Prerrequisitos de Minería de Datos, cortando cuando se llega a Programación:
+
+\begin{lstlisting}
+FOR v, e, p IN 1..3 OUTBOUND "cursos/mineria" requiere
+  PRUNE v._key == "prog"
+  RETURN {
+    prerrequisito: v.nombre,
+    camino: p.vertices[*].nombre
+  }
+\end{lstlisting}
+
+\begin{block}{Diferencia}
+\texttt{FILTER} decide qué resultados se devuelven. \texttt{PRUNE} decide qué ramas del grafo se siguen explorando.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{29. Opciones de traversal}
+\begin{lstlisting}
+FOR v, e, p IN 1..3 OUTBOUND "estudiantes/e1" sigue
+  OPTIONS {
+    order: "bfs",
+    uniqueVertices: "path"
+  }
+  RETURN p.vertices[*].nombre
+\end{lstlisting}
+
+\vspace{0.2cm}
+\begin{itemize}
+  \item \texttt{order: "bfs"}: explora por amplitud.
+  \item \texttt{uniqueVertices: "path"}: evita repetir vértices dentro del mismo camino.
+  \item Útil para controlar ciclos y el tamaño de la exploración.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{30. Camino más corto}
+\begin{lstlisting}
+FOR v, e IN OUTBOUND SHORTEST_PATH
+  "estudiantes/e1" TO "estudiantes/e4" sigue
+  RETURN v.nombre
+\end{lstlisting}
+
+\vspace{0.2cm}
+\begin{block}{Pregunta que responde}
+¿Cuál es la secuencia mínima de relaciones \texttt{sigue} para llegar desde Ana hasta Diego?
+\end{block}
+
+\begin{alertblock}{Nota}
+Para grafos con pesos, se pueden usar opciones de peso en variantes de caminos.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{31. Recomendación simple usando grafos}
+Recomendar contactos de segundo grado que Ana aún no sigue directamente:
+
+\begin{lstlisting}
+LET directos = (
+  FOR v IN 1..1 OUTBOUND "estudiantes/e1" sigue
+    RETURN v._id
+)
+
+FOR v, e, p IN 2..2 OUTBOUND "estudiantes/e1" sigue
+  FILTER v._id NOT IN directos
+  FILTER v._id != "estudiantes/e1"
+  RETURN DISTINCT {
+    recomendado: v.nombre,
+    via: p.vertices[1].nombre
+  }
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{32. Consulta mixta: documentos + grafos}
+Para cada estudiante activo, recuperar cursos y contactos de primer grado:
+
+\begin{lstlisting}
+FOR e IN estudiantes
+  FILTER e.activo
+  LET cursos = (
+    FOR i IN inscripciones
+      FILTER i._from == e._id
+      LET c = DOCUMENT(i._to)
+      RETURN c.nombre
+  )
+  LET contactos = (
+    FOR v IN 1..1 OUTBOUND e._id sigue
+      RETURN v.nombre
+  )
+  RETURN { estudiante: e.nombre, cursos: cursos, contactos: contactos }
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{33. ArangoSearch: SEARCH en Views}
+\texttt{SEARCH} se usa con Views de ArangoSearch, no directamente como \texttt{FILTER} común.
+
+\begin{lstlisting}
+FOR doc IN vista_estudiantes
+  SEARCH ANALYZER(doc.nombre IN TOKENS(@texto, "text_es"), "text_es")
+  SORT BM25(doc) DESC
+  LIMIT 10
+  RETURN {
+    nombre: doc.nombre,
+    score: BM25(doc)
+  }
+\end{lstlisting}
+
+\begin{block}{Cuándo usarlo}
+Búsqueda de texto, ranking, scoring, analizadores lingüísticos y consultas tipo buscador.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{34. WINDOW: agregados móviles}
+Ejemplo conceptual: promedio móvil de notas ordenadas por semestre.
+
+\begin{lstlisting}
+FOR i IN inscripciones
+  SORT i.semestre ASC
+  WINDOW { preceding: 2, following: 0 }
+  AGGREGATE promedio_movil = AVERAGE(i.nota)
+  RETURN {
+    semestre: i.semestre,
+    nota: i.nota,
+    promedio_movil: promedio_movil
+  }
+\end{lstlisting}
+
+\begin{block}{Uso típico}
+Series temporales, métricas acumuladas, promedios móviles y comparaciones locales.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\section{Rendimiento y buenas prácticas}
+
+\begin{frame}[fragile]{35. Revisar planes de ejecución}
+En arangosh o desde la interfaz web se puede inspeccionar el plan:
+
+\begin{lstlisting}[language=AQL]
+db._explain(`
+  FOR e IN estudiantes
+    FILTER e.carrera == "Bioinformatica"
+    SORT e.promedio DESC
+    RETURN e.nombre
+`)
+\end{lstlisting}
+
+\vspace{0.2cm}
+Busque señales como:
+\begin{itemize}
+  \item \texttt{EnumerateCollectionNode}: posible full scan.
+  \item Uso o no uso de índices.
+  \item Sorts costosos.
+  \item Cantidad estimada de documentos procesados.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}[fragile]{36. Índices: se crean fuera de AQL}
+Ejemplo en arangosh:
+
+\begin{lstlisting}[language=AQL]
+db.estudiantes.ensureIndex({
+  type: "persistent",
+  fields: ["carrera"]
+})
+
+// Luego la consulta AQL puede aprovecharlo:
+FOR e IN estudiantes
+  FILTER e.carrera == "Bioinformatica"
+  RETURN e.nombre
+\end{lstlisting}
+
+\begin{alertblock}{Regla práctica}
+Indexar atributos usados frecuentemente en \texttt{FILTER}, \texttt{SORT} o patrones de búsqueda selectivos.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Patrones que escalan mejor}
+\begin{itemize}
+  \item Proyectar solo los atributos necesarios.
+  \item Filtrar lo antes posible en la consulta lógica.
+  \item Crear índices para filtros frecuentes y de alta selectividad.
+  \item Evitar nested loops innecesarios en colecciones grandes.
+  \item Usar edge collections y traversals cuando la relación es naturalmente un grafo.
+  \item Usar \texttt{COLLECT AGGREGATE} cuando no se necesitan todos los documentos del grupo.
+  \item Revisar \texttt{EXPLAIN} y \texttt{PROFILE} antes de optimizar a ciegas.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Errores comunes}
+\begin{itemize}
+  \item Usar AQL para crear colecciones o índices: eso no corresponde a AQL.
+  \item Hacer \texttt{RETURN doc} en colecciones grandes sin necesidad.
+  \item Usar \texttt{LIMIT} antes de filtrar u ordenar sin querer.
+  \item Olvidar que las subconsultas devuelven arreglos.
+  \item Confundir \texttt{FILTER} con \texttt{PRUNE} en traversals.
+  \item Ejecutar \texttt{UPDATE} o \texttt{REMOVE} masivos sin probar primero el filtro.
+  \item Concatenar parámetros como texto en vez de usar bind parameters.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\section{Ejercicios}
+
+\begin{frame}{Ejercicios simples}
+\begin{enumerate}
+  \item Listar los nombres de todos los estudiantes activos.
+  \item Listar estudiantes de Bioinformática ordenados por promedio descendente.
+  \item Devolver solo nombre, carrera y número de intereses de cada estudiante.
+  \item Buscar estudiantes cuyo arreglo \texttt{intereses} contenga \texttt{"grafos"}.
+  \item Paginar estudiantes alfabéticamente, 2 por página.
+\end{enumerate}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Ejercicios intermedios}
+\begin{enumerate}
+  \item Contar estudiantes por carrera con \texttt{COLLECT}.
+  \item Calcular promedio de notas por curso.
+  \item Para cada estudiante, devolver una lista anidada de cursos inscritos.
+  \item Listar cursos con al menos 2 estudiantes inscritos.
+  \item Usar \texttt{UPSERT} para registrar una visita por estudiante.
+\end{enumerate}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Ejercicios avanzados}
+\begin{enumerate}
+  \item Desde \texttt{estudiantes/e1}, listar contactos a distancia 1 y 2.
+  \item Recomendar contactos de segundo grado excluyendo contactos directos.
+  \item Listar todos los prerrequisitos de \texttt{cursos/mineria} usando traversal.
+  \item Encontrar el camino más corto entre dos estudiantes.
+  \item Comparar dos planes de ejecución: con y sin índice sobre \texttt{carrera}.
+\end{enumerate}
+\end{frame}
+
+%%------------------------------------------------
+%\begin{frame}[fragile]{Mini evaluación: consulta integradora}
+%\textbf{Pregunta:} Para cada carrera, listar estudiantes activos, sus cursos y el promedio de nota por estudiante.
+%
+%\begin{lstlisting}
+%FOR e IN estudiantes
+%  FILTER e.activo
+%  LET cursos = (
+%    FOR i IN inscripciones
+%      FILTER i._from == e._id
+%      LET c = DOCUMENT(i._to)
+%      RETURN { curso: c.nombre, nota: i.nota }
+%  )
+%  COLLECT carrera = e.carrera INTO grupo = {
+%    estudiante: e.nombre,
+%    cursos: cursos,
+%    promedio_notas: AVERAGE(cursos[*].nota)
+%  }
+%  RETURN { carrera: carrera, estudiantes: grupo }
+%\end{lstlisting}
+%\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Resumen}
+\begin{itemize}
+  \item AQL permite consultar documentos y grafos con un mismo lenguaje.
+  \item La base de una consulta es \texttt{FOR + FILTER + RETURN}.
+  \item \texttt{COLLECT} permite agrupar y agregar datos.
+  \item Las subconsultas permiten resultados jerárquicos y consultas más expresivas.
+  \item Las edge collections habilitan recorridos de grafos con \texttt{OUTBOUND}, \texttt{INBOUND} y \texttt{ANY}.
+  \item La optimización requiere medir: \texttt{EXPLAIN}, \texttt{PROFILE} e índices adecuados.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Referencias principales}
+\footnotesize
+\begin{itemize}
+  \item ArangoDB Documentation. \textit{AQL Documentation}. \url{https://docs.arango.ai/arangodb/stable/aql/}
+  \item ArangoDB Documentation. \textit{AQL Data Queries}. \url{https://docs.arango.ai/arangodb/3.12/aql/data-queries/}
+  \item ArangoDB Documentation. \textit{High-level AQL operations}. \url{https://docs.arango.ai/arangodb/3.12/aql/high-level-operations/}
+  \item ArangoDB Documentation. \textit{COLLECT operation in AQL}. \url{https://docs.arango.ai/arangodb/3.12/aql/high-level-operations/collect/}
+  \item ArangoDB Documentation. \textit{Combining queries with subqueries in AQL}. \url{https://docs.arango.ai/arangodb/stable/aql/fundamentals/subqueries/}
+  \item ArangoDB Documentation. \textit{Graph queries in AQL}. \url{https://docs.arango.ai/arangodb/stable/aql/graph-queries/}
+  \item ArangoDB Documentation. \textit{AQL graph traversals explained}. \url{https://docs.arango.ai/arangodb/stable/aql/graph-queries/traversals-explained/}
+\end{itemize}
+\end{frame}
+
+\end{document}

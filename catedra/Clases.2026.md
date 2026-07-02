@@ -231,6 +231,28 @@ Las slides de la clase están disponibles [aquí](https://github.com/adigenova/u
 
 El codigo introductorio a AQL esta [aqui](https://github.com/adigenova/uohdb/blob/main/code/Arango_GraphDB.ipynb)
 
+## DB-14-C01 (02/07/2026)
+
+NOSQL II
+
+### Slides
+
+Las slides de la clase están disponibles [aquí](https://github.com/adigenova/uohdb/tree/main/catedra/BD-W11-C02/PMD-W11-C02-noSQL.pdf)
+
+### Codigo
+
+El codigo introductorio a AQL esta [aqui](https://github.com/adigenova/uohdb/blob/main/code/Arango_GraphDB.ipynb)
+
+
+## DB-15-C01 (02/07/2026)
+
+NOSQL III
+
+### Slides
+
+Las slides de la clase están disponibles [aquí](https://github.com/adigenova/uohdb/tree/main/catedra/DB-W12-C01/clase_aql.pdf)
+
+### Codigo
 
 
 
